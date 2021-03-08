@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="toolbar">
+
+    <mat-toolbar-row>
+        <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="container" *ngIf="started && !failed">
+    <div class="desc"><span class="decorated-letter">{{question.difficulty}}</span>. kérdés {{awardNext | pointReplacer}} Ft-ért</div>
+    <div class="question">
+        {{question.question}}</div>
+    <div class="answers">
+        <div class="answers__option" (click)="checkAnswer(0)">
+            <span class='decorated-letter'>A:</span><span class="option">{{question.answer_options[0]}}</span></div>
+        <div class="answers__option " (click)="checkAnswer(1)">
+            <span class='decorated-letter'>B:</span><span class="option">{{question.answer_options[1]}}</span></div>
+        <div class="answers__option" (click)="checkAnswer(2)">
+            <span class='decorated-letter'>C:</span><span class="option">{{question.answer_options[2]}}</span></div>
+        <div class="answers__option" (click)="checkAnswer(3)">
+            <span class='decorated-letter'>D:</span><span class="option">{{question.answer_options[3]}}</span></div>
+    </div>
+    <div class="success" *ngIf="success">
+        <img src="../../assets/check-mark.png" class="img">
+    </div>
+    <div class="failed" *ngIf="success==false">
+        <div class="img"><img src="../../assets/cancel.svg" class="img"></div>
+    </div>
+</div>
+
+<div class="finish" *ngIf="failed">
+    <div class="text">
+        <div class="text__end">A játék véget ért! </div>
+        <div class="text__won">A nyereményed:</div>
+        <div class="text__amount"> {{checkAmount()}} Ft.</div>
+    </div>
+    <div class="btn" (click)="newGame()"><button>Új Játék</button></div>
+</div>

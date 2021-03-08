@@ -1,0 +1,137 @@
+$primary-color:#272727;
+$secondary-color: #dee8ec;
+$border-color:#187563;
+$hover-color:#272727;
+$primary-font-size:3rem;
+$secondary-font-size:4rem;
+$answer-font-size:3rem;
+$primary-font-family: 'Shadows Into Light',
+serif;
+$secondary-font-family: 'Crimson Text',
+serif;
+.success {
+    $border-color: #e65959;
+}
+
+.toolbar {
+    background-color: $primary-color;
+    height: 15vh;
+    &__title {
+        font-family: $secondary-font-family;
+        margin-top: 8vh;
+        margin-left: 40vw;
+        font-size: $primary-font-size;
+        color: $secondary-color;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    .desc {
+        font-size: $secondary-font-size;
+        font-family: $secondary-font-family;
+        color: $border-color;
+        margin-top: 3rem;
+    }
+    .question {
+        color: $border-color;
+        font-size: $primary-font-size;
+        font-family: $secondary-font-family;
+        font-weight: bold;
+        text-align: left;
+        margin-top: 3rem;
+        margin-bottom: 0;
+        width: 80%;
+        line-height: 3ch;
+        height: 8rem;
+    }
+    .answers {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3rem;
+        margin-top: 0;
+        .answers:active {
+            background-color: red !important;
+        }
+        &__option {
+            flex: 0 40%;
+            margin: 2rem;
+            margin-left: 0;
+            margin-bottom: 0;
+            background-color: $primary-color;
+            font-size: $answer-font-size;
+            color: $secondary-color;
+            border-radius: 12%;
+            border: 0.5rem solid $border-color;
+            padding: 1rem;
+            text-align: left;
+            font-family: $secondary-font-family;
+            .decorated-letter {
+                color: $border-color;
+                font-family: $primary-font-family;
+                font-size: $secondary-font-size;
+                letter-spacing: 0.3ch;
+            }
+            .option {
+                color: $secondary-color;
+            }
+        }
+    }
+    .success,
+    .failed {
+        img {
+            height: 8rem;
+            margin-right: 11rem;
+            margin-top: 0;
+        }
+    }
+}
+
+.finish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 3rem;
+    .text {
+        margin: 0 auto;
+        font-family: $secondary-font-family;
+        color: $border-color;
+        font-size: $secondary-font-size;
+        display: flex;
+        flex-direction: column;
+        line-height: 6rem;
+        &__amount {
+            margin-top: 3rem;
+            font-size: 6rem;
+        }
+    }
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    button {
+        margin-top: 5rem;
+        background-color: $primary-color;
+        font-family: $secondary-font-family;
+        font-size: $secondary-font-size;
+        outline: none;
+        border: 10px solid $border-color;
+        border-radius: 8%;
+        color: $secondary-color;
+        padding: 0 6rem;
+    }
+    button:hover {
+        background-color: $border-color;
+    }
+}
