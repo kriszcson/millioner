@@ -1,10 +1,10 @@
-<mat-toolbar color="primary" class="toolbar">
+<div class="toolbar">
+    <div class="toolbar__logout">
+        <button (click)="getHalf()">Log Out</button>
+    </div>
+    <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
 
-    <mat-toolbar-row>
-        <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
-        <mat-button (click)="logout()" routerLink="/users" routerLinkActive="active">Log Out</mat-button>
-    </mat-toolbar-row>
-</mat-toolbar>
+</div>
 
 
 <div class="container" *ngIf="started && !failed">

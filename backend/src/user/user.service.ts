@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import * as bcrypt from 'bcrypt';
 
@@ -30,16 +30,36 @@ export class UserService {
             const user = new this.userModel({
                 email: userDTO.email,
                 password: await this.hashPassword(userDTO.password),
-                allAmount: userDTO.allAmount
+                allAmount: 0
             })
             await user.save();
             return user;
         }
     }
 
+    async updateUser(userDTO: UserDTO) {
+        const userOriginalPoints = (await this.findByEmail(userDTO.email)).allAmount;
+        userDTO.allAmount += userOriginalPoints;
+        return await this.userModel
+            .findOneAndUpdate({ email: userDTO.email }, userDTO, { useFindAndModify: false, new: true })
+            .exec()
+            || new NotFoundException(404, 'Account not found!');
+    }
+
+    async updateByEmail(userDTO: UserDTO) {
+        return await this.userModel
+            .findOneAndUpdate({ email: userDTO.email }, userDTO, { useFindAndModify: false, new: true })
+            .exec()
+            || new NotFoundException(404, 'Account not found!');
+    }
+
+    async deleteById(id: string) {
+        return await this.userModel.findByIdAndDelete(id).exec() || new NotFoundException(404, 'Account not found!');
+    }
+
     private async hashPassword(password: string) {
-        const saltOrRounds = 10;;
-        const hash = await bcrypt.hash(password, saltOrRounds);
+        const saltOfRounds = 10;;
+        const hash = await bcrypt.hash(password, saltOfRounds);
         return hash;
     }
 }

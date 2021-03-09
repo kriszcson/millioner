@@ -6,9 +6,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
-  error;
-  constructor(private readonly http: HttpClient) {
-  }
+
+  constructor(private readonly http: HttpClient) { }
 
   login(email: string, password: string) {
     return this.http.post<any>((`${environment.API_URL}/auth/login`), { email: email, password: password });
@@ -16,6 +15,10 @@ export class UsersService {
 
   signup(email: string, password: string) {
     return this.http.post<any>((`${environment.API_URL}/auth/signup`), { email: email, password: password, allAmount: 0 });
+  }
+
+  updatePoints(email: string, points: number) {
+    return this.http.put<any>((`${environment.API_URL}/users/updatepoints`), { email: email, allAmount: points });
   }
 }
 

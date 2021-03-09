@@ -31,5 +31,5 @@ export class UserDTO {
         type: Number,
         description: 'The all amount Forints you won in the game'
     })
-    readonly allAmount: number;
+    allAmount: number;
 }
