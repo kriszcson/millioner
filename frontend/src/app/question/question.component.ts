@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Question, Award, levels } from './model/question.model';
 import { QuestionService } from './question.service';
 
@@ -17,18 +17,25 @@ export class QuestionComponent implements OnInit {
   award: Award.Enum = Award.Enum.q0;
   awardNext: Award.Enum = Award.Enum.q1;
   failed = false;
+  token;
 
-
-  constructor(private readonly questionService: QuestionService) { }
+  constructor(
+    private readonly questionService: QuestionService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.token = window.history.state.access_token;
+    if (!this.token) {
+      this.router.navigate(['/users'])
+    }
     this.getQuestion();
   }
 
   async getQuestion() {
     this.difficulty++;
     this.success = null;
-    this.questionService.getRandomByDifficulty(this.difficulty)
+    this.questionService.getRandomByDifficulty(this.difficulty, this.token)
       .subscribe((data => {
         this.question = data;
         this.start();
@@ -93,4 +100,9 @@ export class QuestionComponent implements OnInit {
     this.failed = false;
     this.getQuestion();
   }
+
+  logout() {
+    localStorage.removeItem('access_token');
+  }
+
 }

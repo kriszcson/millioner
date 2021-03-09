@@ -57,9 +57,7 @@ serif;
         flex-wrap: wrap;
         margin: 3rem;
         margin-top: 0;
-        .answers:active {
-            background-color: red !important;
-        }
+        cursor: pointer;
         &__option {
             flex: 0 40%;
             margin: 2rem;

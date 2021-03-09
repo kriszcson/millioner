@@ -29,7 +29,8 @@ export class UserService {
         } else {
             const user = new this.userModel({
                 email: userDTO.email,
-                password: await this.hashPassword(userDTO.password)
+                password: await this.hashPassword(userDTO.password),
+                allAmount: userDTO.allAmount
             })
             await user.save();
             return user;

@@ -1,0 +1,78 @@
+.image {
+    justify-content: center;
+    text-align: center;
+    img {
+        width: 10rem;
+        border-radius: 50%;
+    }
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10rem;
+    &__error {
+        background-color: red;
+        padding: 0.5rem 0;
+        margin: 2rem 0;
+        text-align: center;
+        color: white;
+    }
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    &__logo {
+        margin-bottom: 3rem;
+        img {
+            width: 3rem;
+        }
+        input {
+            width: 15rem;
+        }
+    }
+    &__email {
+        width: 8rem;
+    }
+    &__password {
+        width: 8rem;
+    }
+    &__button {
+        margin: 1rem;
+        width: 10rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.success-mess {
+    background-color: rgb(63, 161, 43);
+    padding: 2rem 0;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.danger-mess {
+    background-color: rgb(216, 101, 101);
+    padding: 2rem 0;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1025px) {
+    .mat-card {
+        max-width: 25rem!important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mat-card {
+        max-width: 20rem!important;
+    }
+}

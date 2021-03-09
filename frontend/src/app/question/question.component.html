@@ -2,6 +2,7 @@
 
     <mat-toolbar-row>
         <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
+        <mat-button (click)="logout()" routerLink="/users" routerLinkActive="active">Log Out</mat-button>
     </mat-toolbar-row>
 </mat-toolbar>
 

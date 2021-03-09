@@ -1,0 +1,21 @@
+<div class="login-form" fxLayoutAlign="center center">
+    <mat-card fxFlex="25">
+        <form fxLayout="column" [formGroup]="loginForm">
+            <div class="image"><img src="../../assets/millionaire2.png" alt="" class="logo"></div>
+
+            <p class="login-form__error__text">{{ message }}</p>
+
+            <mat-form-field>
+                <input matInput class="login__email" type="email" placeholder="email" formControlName="email">
+                <mat-error>{{ errorMessage }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput class="login__password" placeholder="password" type="password" formControlName="password">
+                <mat-error>{{ errorMessage }}</mat-error>
+            </mat-form-field>
+        </form>
+        <button mat-flat-button class="login__button" color="primary" (click)="login()" [disabled]="loginForm.invalid">Sign In</button>
+        <button mat-flat-button class="login__button" color="secondary" (click)="signup()" [disabled]="loginForm.invalid">Sign Up</button>
+    </mat-card>
+</div>
