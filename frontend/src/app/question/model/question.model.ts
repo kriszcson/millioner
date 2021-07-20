@@ -9,17 +9,14 @@ export interface Question {
 
 export namespace Topic {
     export enum Enum {
-        SPORTS = 'Sport',
-        LITERATURE = 'Szépirodalom, magyar nyelvtan',
-        MOVIES = 'Filmek, sorozatok, tv-műsorok',
-        HISTORY = 'Történelem',
-        MUSIC = 'Zene',
-        GEO = 'Földrajz/természet',
-        IT = 'Informatika, IT',
-        FASHION = 'Divat',
-        TECHNOLOGY = 'Technológia',
-        SOCIAL = 'Közélet',
-        GASTRONOMY = 'Gasztronómia'
+        SPORTS = 'SPORTS',
+        LITERATURE = 'LITERATURE',
+        MOVIES = 'MOVIES',
+        HISTORY = 'HISTORY',
+        MUSIC = 'MUSIC',
+        GEO = 'GEO',
+        IT = 'IT',
+        REAL = 'REAL'
     }
 }
 

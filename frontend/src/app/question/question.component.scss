@@ -62,15 +62,15 @@ serif;
         text-align: left;
         margin-top: 3rem;
         margin-bottom: 0;
-        width: 80%;
+        width: 70%;
         line-height: 3ch;
         height: 8rem;
     }
     .answers {
-        margin: 0 auto;
-        width: 80%;
         display: flex;
         flex-wrap: wrap;
+        margin: 0 auto;
+        width: 70%;
         margin: 3rem;
         margin-top: 0;
         &__option {
@@ -98,13 +98,28 @@ serif;
             }
         }
     }
-    .success,
-    .failed {
-        img {
-            height: 8rem;
-            margin-right: 11rem;
-            margin-top: 0;
+    .helpers {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: center;
+        &__img {
+            display: flex;
+            margin: 2rem 5rem;
+            flex-direction: column;
+            justify-content: center;
+            img {
+                height: 8rem;
+                cursor: pointer;
+            }
         }
+    }
+    .phone-support {
+        color: $border-color;
+        font-family: $primary-font-family;
+        font-size: $secondary-font-size;
+        letter-spacing: 0.3ch;
     }
 }
 

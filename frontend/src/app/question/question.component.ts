@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UsersService } from '../users/users.service';
-import { Question, Award, levels } from './model/question.model';
+import { Question, Award, levels, Topic } from './model/question.model';
 import { QuestionService } from './question.service';
-
-import { Helpers } from './helpers/helpers';
 
 
 @Component({
@@ -26,26 +24,38 @@ export class QuestionComponent implements OnInit {
   userEmail: string;
   rightIndexTemp: number;
   rightAnswerTemp: string;
+  clickedOption: number;
+  haveHalf: boolean = true;
+  haveTopic: boolean = true;
+  havePhone: boolean = true;
+  phoneHelping: boolean = false;
+  randomIndexForPhone: string;
+  wrongAnswer: boolean = false;
+  choosingTopic: boolean = false;
+  chosenTopic: string;
+  seconds = 0;
 
   constructor(
+    private router: Router,
     private readonly questionService: QuestionService,
-    private readonly userService: UsersService,
-    private router: Router
+    private readonly userService: UsersService
   ) { }
 
   ngOnInit(): void {
-    this.token = window.history.state.access_token;
-    this.userEmail = window.history.state.email;
-    if (!this.token) {
-      this.router.navigate(['/users'])
+    this.userEmail = localStorage.getItem('email');
+    this.token = localStorage.getItem('access_token');
+    if (this.token == null || this.userService.tokenExpired(this.token)) {
+      this.router.navigateByUrl('/users');
+    } else {
+      this.playStartingSound();
+      this.getQuestion();
     }
-    this.playStartingSound();
-    this.getQuestion();
   }
 
   async getQuestion() {
     this.difficulty++;
     this.success = null;
+    this.wrongAnswer = false;
     this.questionService.getRandomByDifficulty(this.difficulty, this.token)
       .subscribe((data => {
         this.question = data;
@@ -89,6 +99,7 @@ export class QuestionComponent implements OnInit {
 
   nextQuestion() {
     this.success = false;
+    this.phoneHelping = false;
     this.getQuestion();
   }
 
@@ -100,6 +111,7 @@ export class QuestionComponent implements OnInit {
         this.wrongAnswering();
       }
     }, this.randomizeTime());
+    this.clickedOption = answerIndex;
   }
 
   correctAnswering() {
@@ -113,6 +125,7 @@ export class QuestionComponent implements OnInit {
 
   wrongAnswering() {
     this.success = false;
+    this.wrongAnswer = true;
     this.playWrongAnserSound();
     setTimeout(() => {
       this.finishQuiz();
@@ -174,11 +187,16 @@ export class QuestionComponent implements OnInit {
     this.award = Award.Enum.q0;
     this.awardNext = Award.Enum.q1;
     this.failed = false;
+    this.haveHalf = true;
+    this.havePhone = true;
+    this.haveTopic = true;
     this.getQuestion();
   }
 
   logout() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('email');
+    this.router.navigateByUrl('/users')
   }
 
   randomizeTime() {
@@ -186,6 +204,7 @@ export class QuestionComponent implements OnInit {
   }
 
   getHalf() {
+    this.haveHalf = false;
     let twoOptions: string[] = [];
     twoOptions.push(this.question.answer_options[this.question.right_answer_index]);
     let i = 0;
@@ -203,8 +222,73 @@ export class QuestionComponent implements OnInit {
     }
   }
 
+  getTopic(event: Event) {
+    this.getByTopic(event.toString())
+  }
+
+  getByTopic(topic: string) {
+    this.choosingTopic = false;
+    this.questionService.getRandomByTopic(topic, this.difficulty, this.token)
+      .subscribe(data => {
+        this.question = data;
+        this.rightAnswerTemp = this.question.answer_options[this.question.right_answer_index];
+        this.question.answer_options = this.shuffleOptions(this.question.answer_options);
+        this.question.right_answer_index = this.getCorrectIndex();
+        this.start();
+        this.haveTopic = false;
+      })
+  }
+
+  getPhone() {
+    this.havePhone = false;
+    this.doPhoneHelp();
+    this.phoneHelping = true;
+  }
+
+  doPhoneHelp() {
+    let diff = this.question.difficulty;
+    switch (true) {
+      case (diff < 3): return this.randomizePhoneHelpValidity(90);
+      case (diff < 5): return this.randomizePhoneHelpValidity(80);
+      case (diff < 8): return this.randomizePhoneHelpValidity(60);
+      case (diff < 11): return this.randomizePhoneHelpValidity(40);
+    }
+  }
+
+  randomizePhoneHelpValidity(chancePercent: number) {
+    let random = Math.random() * 100;
+    if (random < chancePercent) {
+      this.randomIndexForPhone = this.getLetter(this.question.right_answer_index);
+    } else {
+      let answersIndexes = [0, 1, 2, 3];
+      let wrongAnswerIndexes = answersIndexes.filter(i => i != this.question.right_answer_index);
+      this.randomIndexForPhone = this.getLetter(wrongAnswerIndexes[Math.floor(Math.random() * 3)]);
+    }
+  }
+
   getRandomOfFour() {
     return Math.floor(Math.random() * 4);
   }
 
+  getColor(i: number): string {
+    if (!this.success && i == this.question.right_answer_index && this.wrongAnswer) {
+      return 'green';
+    }
+    if (i == this.clickedOption) {
+      switch (this.success) {
+        case true: return 'green';
+        case false: return 'red';
+      }
+    }
+    return null;
+  }
+
+  getLetter(i: number): string {
+    switch (i) {
+      case 0: return 'A';
+      case 1: return 'B';
+      case 2: return 'C';
+      case 3: return 'D';
+    }
+  }
 }

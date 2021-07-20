@@ -18,6 +18,7 @@ import { MatCardModule } from "@angular/material/card";
 import { QuestionComponent } from './question/question.component';
 import { PointReplacerPipe } from './question/formatter/point-replacer.pipe';
 import { UsersComponent } from './users/users.component';
+import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
 
 const appRoutes: Routes = [
   { path: '', component: QuestionComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     QuestionComponent,
     PointReplacerPipe,
-    UsersComponent
+    UsersComponent,
+    TopicSelectorComponent
   ],
   imports: [
     BrowserModule,

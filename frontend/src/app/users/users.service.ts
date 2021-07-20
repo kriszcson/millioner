@@ -20,5 +20,10 @@ export class UsersService {
   updatePoints(email: string, points: number) {
     return this.http.put<any>((`${environment.API_URL}/users/updatepoints`), { email: email, allAmount: points });
   }
+
+  tokenExpired(token: string): boolean {
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+  }
 }
 

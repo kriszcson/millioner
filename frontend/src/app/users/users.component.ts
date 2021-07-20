@@ -15,8 +15,15 @@ export class UsersComponent implements OnInit {
   message = "";
   isSucces: boolean;
   isShow = false;
+  token: string;
 
   ngOnInit(): void {
+    if (localStorage.getItem('access_token')) {
+      this.token = localStorage.getItem('access_token');
+      if (!this.usersService.tokenExpired(this.token)) {
+        this.router.navigateByUrl('');
+      }
+    }
     this.loginForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(1)])
@@ -31,10 +38,11 @@ export class UsersComponent implements OnInit {
   login() {
     const { email, password } = this.loginForm.value;
     this.usersService.login(email, password).subscribe(data => {
-      this.message = "Sikeres Bejelentkezés!";
       localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('email', data.email);
+      this.message = "Sikeres Bejelentkezés!";
       setTimeout(() => {
-        this.router.navigateByUrl('', { state: data })
+        this.router.navigateByUrl('')
       }, 2000)
     }, error => {
       this.message = "Hibás felhasználónév vagy jelszó!";
@@ -52,5 +60,6 @@ export class UsersComponent implements OnInit {
       }
     })
   }
+
 }
 

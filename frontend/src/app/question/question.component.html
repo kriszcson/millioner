@@ -1,34 +1,31 @@
 <div class="toolbar">
     <div class="toolbar__logout">
-        <button (click)="getHalf()">Log Out</button>
+        <button (click)="logout()">Log Out</button>
     </div>
     <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
-
 </div>
 
 
 <div class="container" *ngIf="started && !failed">
     <div class="desc"><span class="decorated-letter">{{question.difficulty}}</span>. kérdés {{awardNext | pointReplacer}} Ft-ért</div>
-    <div class="question">
-        {{question.question}}</div>
-    <div class="answers">
-        <div class="answers__option" (click)="checkAnswer(0)">
-            <span class='decorated-letter'>A:</span><span class="option">{{question.answer_options[0]}}</span></div>
-        <div class="answers__option " (click)="checkAnswer(1)">
-            <span class='decorated-letter'>B:</span><span class="option">{{question.answer_options[1]}}</span></div>
-        <div class="answers__option" (click)="checkAnswer(2)">
-            <span class='decorated-letter'>C:</span><span class="option">{{question.answer_options[2]}}</span></div>
-        <div class="answers__option" (click)="checkAnswer(3)">
-            <span class='decorated-letter'>D:</span><span class="option">{{question.answer_options[3]}}</span></div>
-    </div>
-    <div class="success" *ngIf="success">
-        <img src="../../assets/check-mark.png" class="img">
-    </div>
-    <div class="failed" *ngIf="success==false">
-        <div class="img"><img src="../../assets/cancel.svg" class="img"></div>
-    </div>
-</div>
+    <div class="question">{{question.question}}</div>
 
+    <div class="answers">
+        <div *ngFor="let option of question.answer_options; let i = index" class="answers__option" (click)="checkAnswer(i);" [ngStyle]="{backgroundColor:getColor(i)}">
+            <span class='decorated-letter'>{{getLetter(i)}}:</span>
+            <span class="option">{{option}}</span>
+        </div>
+    </div>
+    <div class=helpers>
+        <div *ngIf="haveHalf" class="helpers__img"><img src="../../assets/half.png" class="img" (click)="getHalf()"></div>
+        <div *ngIf="haveTopic" class="helpers__img"><img src="../../assets/book.png" class="img" (click)="this.haveTopic=false; this.choosingTopic=true;"></div>
+        <div *ngIf="havePhone" class="helpers__img"><img src="../../assets/phone.jpg" class="img" (click)="getPhone()"></div>
+    </div>
+    <div class="phone-support" *ngIf="phoneHelping">{{randomIndexForPhone}}</div>
+</div>
+<div class="topic-selector">
+    <app-topic-selector *ngIf="choosingTopic" (getTopic)="getTopic($event)"></app-topic-selector>
+</div>
 <div class="finish" *ngIf="failed">
     <div class="text">
         <div class="text__end">A játék véget ért! </div>
