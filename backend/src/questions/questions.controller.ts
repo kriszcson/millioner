@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { QuestionDTO } from './dto/questions.dto';
 import { Topic } from './model/question.model';
@@ -29,6 +29,11 @@ export class QuestionsController {
         @Param('difficulty') difficulty: any
     ) {
         return await this.questionServive.getOneOfTopicAndDifficulty(topic, difficulty);
+    }
+
+    @Delete('/:id')
+    async deleteOne(@Param('id') id: string) {
+        return await this.questionServive.deleteById(id);
     }
 
     @Get()

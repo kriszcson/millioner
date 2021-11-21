@@ -16,7 +16,6 @@ serif;
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto;
@@ -32,17 +31,49 @@ serif;
     position: fixed;
     top: 0;
     left: 0;
+    .helpers {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        width: 30%;
+        height: 5rem;
+        border-radius: 20px;
+        background-color: black;
+        justify-content: space-between;
+        border: 2px solid rgba(161, 130, 130, 0.679);
+        padding: 1rem 3rem 1rem 3rem;
+        margin-top: 10vh;
+        &__img {
+            display: flex;
+            margin-left: 0;
+            margin-right: 0;
+            flex-direction: column;
+            border-radius: 50%;
+            img {
+                height: 5rem;
+                -webkit-filter: invert(1);
+                filter: invert(1);
+            }
+            &:hover {
+                background-color: #e1d537;
+            }
+            &:active {
+                background-color: green;
+            }
+        }
+    }
     .question {
-        margin-top: 40vh;
+        margin-top: 10vh;
         width: 80vw;
         height: 8rem;
         border-radius: 20px;
-        background-color: #050505c1;
+        background-color: black;
         font-family: $secondary-font-family;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.679);
         &__text {
             font-size: $primary-font-size;
             line-height: 50px;
@@ -52,20 +83,15 @@ serif;
     .answers {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         margin: 0 auto;
         width: 60%;
         margin: 3rem;
-        margin-top: 0;
         &__option {
-            .decorated-letter {
-                font-weight: 500;
-                margin-right: 0.6rem;
-            }
-            flex: 0 40%;
-            margin: 2rem;
-            margin-left: 0;
-            margin-bottom: 0;
+            flex: 0 42%;
+            margin-top: 1rem;
             background-color: #050505b1;
+            border: 2px solid rgba(255, 255, 255, 0.679);
             font-size: $answer-font-size;
             color: $secondary-color;
             border-radius: 20px;
@@ -80,29 +106,25 @@ serif;
                 background-color: #050505;
             }
         }
-    }
-    .helpers {
-        display: flex;
-        flex-direction: row;
-        margin: 0 auto;
-        width: 100%;
-        justify-content: center;
-        &__img {
-            display: flex;
-            margin: 2rem 5rem;
-            flex-direction: column;
-            justify-content: center;
-            img {
-                height: 8rem;
-                cursor: pointer;
-            }
+        .decorated-letter {
+            font-weight: 800;
+            color: #7c397a;
+            margin-right: 0.8rem;
         }
     }
-    .phone-support {
-        color: $border-color;
-        font-family: $primary-font-family;
-        font-size: $secondary-font-size;
-        letter-spacing: 0.3ch;
+    .phone-help {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        background-color: #7c397a;
+        border: 2px solid white;
     }
 }
 

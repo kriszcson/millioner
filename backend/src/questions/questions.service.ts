@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuestionDTO } from './dto/questions.dto';
-import { Question, Topic } from './model/question.model';
+import { Question } from './model/question.model';
 
 @Injectable()
 export class QuestionsService {
@@ -39,6 +39,10 @@ export class QuestionsService {
         return this.getRandomQuestion(await this.getAllByTopic(topic));
     }
 
+    async deleteById(id: string) {
+        return await this.questionModel.findByIdAndDelete(id);
+    }
+
     private async getAllByTopic(topic: any): Promise<Question[]> {
         let questionsByTopic: Question[] = [];
         for (let question of await this.getAll()) {
@@ -64,5 +68,4 @@ export class QuestionsService {
     private getRandomQuestion(questions: Question[]): Question {
         return questions[Math.floor(Math.random() * questions.length)]
     }
-
 }

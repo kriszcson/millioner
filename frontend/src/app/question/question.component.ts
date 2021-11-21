@@ -38,7 +38,6 @@ export class QuestionComponent implements OnInit {
   constructor(
     private router: Router,
     private readonly questionService: QuestionService,
-    private readonly userService: UsersService
   ) { }
 
   ngOnInit(): void {/* 
@@ -157,9 +156,9 @@ export class QuestionComponent implements OnInit {
     return Award.Enum.q10;
   }
 
-  savePoints() {
+  savePoints() {/* 
     this.userService.updatePoints(this.userEmail, this.checkAmount()).subscribe(data => {
-    });
+    }); */
   }
 
   playStartingSound() {
@@ -240,6 +239,12 @@ export class QuestionComponent implements OnInit {
       })
   }
 
+  doByTopic() {
+    if (this.haveTopic) {
+      this.haveTopic = false; this.choosingTopic = true
+    }
+  }
+
   getPhone() {
     this.havePhone = false;
     this.doPhoneHelp();
@@ -247,7 +252,7 @@ export class QuestionComponent implements OnInit {
   }
 
   doPhoneHelp() {
-    let diff = this.question.difficulty;
+    const diff = this.question.difficulty;
     switch (true) {
       case (diff < 3): return this.randomizePhoneHelpValidity(90);
       case (diff < 5): return this.randomizePhoneHelpValidity(80);
@@ -257,12 +262,12 @@ export class QuestionComponent implements OnInit {
   }
 
   randomizePhoneHelpValidity(chancePercent: number) {
-    let random = Math.random() * 100;
+    const random = Math.random() * 100;
     if (random < chancePercent) {
       this.randomIndexForPhone = this.getLetter(this.question.right_answer_index);
     } else {
-      let answersIndexes = [0, 1, 2, 3];
-      let wrongAnswerIndexes = answersIndexes.filter(i => i != this.question.right_answer_index);
+      const answersIndexes = [0, 1, 2, 3];
+      const wrongAnswerIndexes = answersIndexes.filter(i => i != this.question.right_answer_index);
       this.randomIndexForPhone = this.getLetter(wrongAnswerIndexes[Math.floor(Math.random() * 3)]);
     }
   }
@@ -274,7 +279,7 @@ export class QuestionComponent implements OnInit {
   getColor(i: number): string {
     if (this.clickedOption > -1) {
       if (this.success === null && this.clickedOption === i) {
-        return 'yellow';
+        return 'gold';
       }
       if (!this.success && i == this.question.right_answer_index && this.wrongAnswer) {
         return 'green';

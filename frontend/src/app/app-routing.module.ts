@@ -6,7 +6,7 @@ import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
   { path: '', component: QuestionComponent },
-  { path: 'users', component: UsersComponent }];
+  { path: 'login', component: UsersComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
