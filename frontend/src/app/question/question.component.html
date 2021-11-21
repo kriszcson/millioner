@@ -1,15 +1,15 @@
-<div class="toolbar">
+<!-- <div class="toolbar">
     <div class="toolbar__logout">
         <button (click)="logout()">Log Out</button>
     </div>
     <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
 </div>
-
+ -->
 
 <div class="container" *ngIf="started && !failed">
-    <div class="desc"><span class="decorated-letter">{{question.difficulty}}</span>. kérdés {{awardNext | pointReplacer}} Ft-ért</div>
-    <div class="question">{{question.question}}</div>
-
+    <div class="question">
+        <div class="question__text">{{question.question}}</div>
+    </div>
     <div class="answers">
         <div *ngFor="let option of question.answer_options; let i = index" class="answers__option" (click)="checkAnswer(i);" [ngStyle]="{backgroundColor:getColor(i)}">
             <span class='decorated-letter'>{{getLetter(i)}}:</span>

@@ -24,7 +24,7 @@ export class QuestionComponent implements OnInit {
   userEmail: string;
   rightIndexTemp: number;
   rightAnswerTemp: string;
-  clickedOption: number;
+  clickedOption: number = -1;
   haveHalf: boolean = true;
   haveTopic: boolean = true;
   havePhone: boolean = true;
@@ -41,21 +41,22 @@ export class QuestionComponent implements OnInit {
     private readonly userService: UsersService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {/* 
     this.userEmail = localStorage.getItem('email');
     this.token = localStorage.getItem('access_token');
     if (this.token == null || this.userService.tokenExpired(this.token)) {
       this.router.navigateByUrl('/users');
     } else {
-      this.playStartingSound();
-      this.getQuestion();
-    }
+      this.playStartingSound(); */
+    this.getQuestion();/* 
+    } */
   }
 
-  async getQuestion() {
+  getQuestion() {
     this.difficulty++;
     this.success = null;
     this.wrongAnswer = false;
+    this.clickedOption = -1;
     this.questionService.getRandomByDifficulty(this.difficulty, this.token)
       .subscribe((data => {
         this.question = data;
@@ -271,16 +272,21 @@ export class QuestionComponent implements OnInit {
   }
 
   getColor(i: number): string {
-    if (!this.success && i == this.question.right_answer_index && this.wrongAnswer) {
-      return 'green';
-    }
-    if (i == this.clickedOption) {
-      switch (this.success) {
-        case true: return 'green';
-        case false: return 'red';
+    if (this.clickedOption > -1) {
+      if (this.success === null && this.clickedOption === i) {
+        return 'yellow';
       }
+      if (!this.success && i == this.question.right_answer_index && this.wrongAnswer) {
+        return 'green';
+      }
+      if (i == this.clickedOption) {
+        switch (this.success) {
+          case true: return 'green';
+          case false: return 'red';
+        }
+      }
+      return null;
     }
-    return null;
   }
 
   getLetter(i: number): string {

@@ -2,9 +2,9 @@ $primary-color:#272727;
 $secondary-color: #deeaee;
 $border-color:#187563;
 $hover-color:#272727;
-$primary-font-size:3rem;
+$primary-font-size:2.4rem;
 $secondary-font-size:4rem;
-$answer-font-size:3rem;
+$answer-font-size:1.5rem;
 $primary-font-family: 'Shadows Into Light',
 serif;
 $secondary-font-family: 'Crimson Text',
@@ -13,88 +13,71 @@ serif;
     $border-color: #e65959;
 }
 
-.toolbar {
-    background-color: $primary-color;
-    height: 10vh;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__title {
-        font-family: $secondary-font-family;
-        margin-top: 8vh;
-        margin-left: 40vw;
-        font-size: $primary-font-size;
-        color: $border-color;
-    }
-    &__logout {
-        button {
-            color: $secondary-color;
-            font-size: 2rem;
-            font-weight: bold;
-            background-color: $border-color;
-            border-radius: 8%;
-            padding: 2px 5px;
-            font-family: $secondary-font-family;
-            margin-left: 80vw;
-        }
-    }
-}
-
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    text-align: left;
     width: 100%;
-    .desc {
-        font-size: $secondary-font-size;
-        font-family: $secondary-font-family;
-        color: $border-color;
-        margin-top: 6rem;
-    }
+    margin: 0 auto;
+    background: url('../../assets/question-walp.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    min-height: 100%;
+    min-width: 1024px;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
     .question {
-        color: $border-color;
-        font-size: $primary-font-size;
-        font-family: $secondary-font-family;
-        font-weight: bold;
-        text-align: left;
-        margin-top: 3rem;
-        margin-bottom: 0;
-        width: 70%;
-        line-height: 3ch;
+        margin-top: 40vh;
+        width: 80vw;
         height: 8rem;
+        border-radius: 20px;
+        background-color: #050505c1;
+        font-family: $secondary-font-family;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text {
+            font-size: $primary-font-size;
+            line-height: 50px;
+            margin-left: 2rem;
+        }
     }
     .answers {
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
-        width: 70%;
+        width: 60%;
         margin: 3rem;
         margin-top: 0;
         &__option {
+            .decorated-letter {
+                font-weight: 500;
+                margin-right: 0.6rem;
+            }
             flex: 0 40%;
             margin: 2rem;
             margin-left: 0;
             margin-bottom: 0;
-            background-color: $primary-color;
+            background-color: #050505b1;
             font-size: $answer-font-size;
             color: $secondary-color;
-            border-radius: 12%;
-            border: 0.5rem solid $border-color;
+            border-radius: 20px;
             padding: 1rem;
             text-align: left;
             font-family: $secondary-font-family;
             cursor: pointer;
-            .decorated-letter {
-                color: $border-color;
-                font-family: $primary-font-family;
-                font-size: $secondary-font-size;
-                letter-spacing: 0.3ch;
-            }
             .option {
                 color: $secondary-color;
+            }
+            &:hover {
+                background-color: #050505;
             }
         }
     }
