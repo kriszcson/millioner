@@ -141,6 +141,8 @@ export class QuestionComponent implements OnInit {
   finishQuiz() {
     this.failed = true;
     this.savePoints();
+
+    this.router.navigate(["finished"], { state: { points: this.checkAmount() } });
   }
 
   checkAmount(): number {

@@ -25,11 +25,3 @@
     <div class="topic-selector">
         <app-topic-selector *ngIf="choosingTopic" (getTopic)="getTopic($event)"></app-topic-selector>
     </div>
-    <div class="finish" *ngIf="failed">
-        <div class="text">
-            <div class="text__end">A játék véget ért! </div>
-            <div class="text__won">A nyereményed:</div>
-            <div class="text__amount"> {{checkAmount()}} Ft.</div>
-        </div>
-        <div class="btn" (click)="newGame()"><button>Új Játék</button></div>
-    </div>

@@ -19,6 +19,7 @@ import { QuestionComponent } from './question/question.component';
 import { PointReplacerPipe } from './question/formatter/point-replacer.pipe';
 import { UsersComponent } from './users/users.component';
 import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
+import { FinishedGameComponent } from './finished-game/finished-game.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TopicSelectorComponent } from './topic-selector/topic-selector.componen
     QuestionComponent,
     PointReplacerPipe,
     UsersComponent,
-    TopicSelectorComponent
+    TopicSelectorComponent,
+    FinishedGameComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,6 @@ import { TopicSelectorComponent } from './topic-selector/topic-selector.componen
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(routes),
-
     HttpClientModule,
     ReactiveFormsModule,
     MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule
