@@ -20,6 +20,7 @@ import { PointReplacerPipe } from './question/formatter/point-replacer.pipe';
 import { UsersComponent } from './users/users.component';
 import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
 import { FinishedGameComponent } from './finished-game/finished-game.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FinishedGameComponent } from './finished-game/finished-game.component';
     PointReplacerPipe,
     UsersComponent,
     TopicSelectorComponent,
-    FinishedGameComponent
+    FinishedGameComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
