@@ -23,12 +23,12 @@
             </div>
             <div class="insertQ__difficulty">
                 <label for="difficulty">Kérdés nehézségi szintje (1-10)</label>
-                <input type="number" id="difficulty" formControlName="difficulty">
+                <input type="number" id="difficulty" formControlName="difficulty" placeholder='0'>
             </div>
             <div class="insertQ__category">
                 <label for="category">Kategória</label>
                 <select id="category" formControlName="category">
-                      <option [ngValue]="null" disabled>Válassz!</option>
+                      <option selected="selected"[ngValue]="null" default disabled>Válassz!</option>
                       <option *ngFor="let category of categories"[ngValue]="category">{{category}}</option>
                 </select>
             </div>
