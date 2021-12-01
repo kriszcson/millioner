@@ -1,36 +1,27 @@
-<div class="toolbar">
+<!-- <div class="toolbar">
     <div class="toolbar__logout">
         <button (click)="logout()">Log Out</button>
     </div>
     <div class="toolbar__title" *ngIf="started && !failed">Aktuális nyeremény: {{award | pointReplacer}} Ft.</div>
 </div>
-
+ -->
 
 <div class="container" *ngIf="started && !failed">
-    <div class="desc"><span class="decorated-letter">{{question.difficulty}}</span>. kérdés {{awardNext | pointReplacer}} Ft-ért</div>
-    <div class="question">{{question.question}}</div>
-
+    <div class=helpers>
+        <div class="helpers__img"><img src="../../assets/half.png" class="img" (click)="getHalf()" [ngStyle]="{visibility: haveHalf ? 'visible' : 'hidden'}"></div>
+        <div class="helpers__img"><img src="../../assets/information.png" class="img" (click)="doByTopic()" [ngStyle]="{visibility: haveTopic ? 'visible' : 'hidden'}"></div>
+        <div class="helpers__img"><img src="../../assets/phone.jpg" class="img" (click)="getPhone()" [ngStyle]="{visibility: havePhone ? 'visible' : 'hidden'}"></div>
+    </div>
+    <div class="question">
+        <div class="question__text">{{question.question}}</div>
+    </div>
     <div class="answers">
         <div *ngFor="let option of question.answer_options; let i = index" class="answers__option" (click)="checkAnswer(i);" [ngStyle]="{backgroundColor:getColor(i)}">
             <span class='decorated-letter'>{{getLetter(i)}}:</span>
             <span class="option">{{option}}</span>
         </div>
     </div>
-    <div class=helpers>
-        <div *ngIf="haveHalf" class="helpers__img"><img src="../../assets/half.png" class="img" (click)="getHalf()"></div>
-        <div *ngIf="haveTopic" class="helpers__img"><img src="../../assets/book.png" class="img" (click)="this.haveTopic=false; this.choosingTopic=true;"></div>
-        <div *ngIf="havePhone" class="helpers__img"><img src="../../assets/phone.jpg" class="img" (click)="getPhone()"></div>
+    <div class="phone-help" *ngIf="phoneHelping">{{randomIndexForPhone}}</div>
+    <div class="topic-selector">
+        <app-topic-selector *ngIf="choosingTopic" (getTopic)="getTopic($event)"></app-topic-selector>
     </div>
-    <div class="phone-support" *ngIf="phoneHelping">{{randomIndexForPhone}}</div>
-</div>
-<div class="topic-selector">
-    <app-topic-selector *ngIf="choosingTopic" (getTopic)="getTopic($event)"></app-topic-selector>
-</div>
-<div class="finish" *ngIf="failed">
-    <div class="text">
-        <div class="text__end">A játék véget ért! </div>
-        <div class="text__won">A nyereményed:</div>
-        <div class="text__amount"> {{checkAmount()}} Ft.</div>
-    </div>
-    <div class="btn" (click)="newGame()"><button>Új Játék</button></div>
-</div>

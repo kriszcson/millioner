@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="insertQ">
+        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+            <div class="insertQ__question">
+                <label for="question">Kérdés</label>
+                <input type="textarea" id="question" formControlName="question" required>
+            </div>
+            <div class="insertQ__right-answer">
+                <label for="right-answer">Helyes válasz</label>
+                <input type="text" id="right-answer" formControlName="rightAnswer">
+            </div>
+            <div class="insertQ__wrong-answer">
+                <label for="wrongAnswerA">1. rossz válasz</label>
+                <input type="text" id="wrong-answerA" formControlName="wrongAnswerA">
+            </div>
+            <div class="insertQ__wrong-answer">
+                <label for="wrongAnswerB">2. rossz válasz</label>
+                <input type="text" id="wrong-answerB" formControlName="wrongAnswerB">
+            </div>
+            <div class="insertQ__wrong-answer">
+                <label for="wrongAnswerC">3. rossz válasz</label>
+                <input type="text" id="wrong-answerC" formControlName="wrongAnswerC">
+            </div>
+            <div class="insertQ__difficulty">
+                <label for="difficulty">Kérdés nehézségi szintje (1-10)</label>
+                <input type="number" id="difficulty" formControlName="difficulty" placeholder='0'>
+            </div>
+            <div class="insertQ__category">
+                <label for="category">Kategória</label>
+                <select id="category" formControlName="category">
+                      <option selected="selected"[ngValue]="null" default disabled>Válassz!</option>
+                      <option *ngFor="let category of categories"[ngValue]="category">{{category}}</option>
+                </select>
+            </div>
+            <div class="insertQ__button"> <button class="button" type="submit" [disabled]="!this.questionForm.valid">Kérdés feltöltése</button></div>
+        </form>
+    </div>
+</div>

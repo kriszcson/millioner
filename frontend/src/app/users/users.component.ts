@@ -17,13 +17,13 @@ export class UsersComponent implements OnInit {
   isShow = false;
   token: string;
 
-  ngOnInit(): void {
+  ngOnInit(): void {/* 
     if (localStorage.getItem('access_token')) {
       this.token = localStorage.getItem('access_token');
       if (!this.usersService.tokenExpired(this.token)) {
         this.router.navigateByUrl('');
       }
-    }
+    } */
     this.loginForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(1)])

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,11 +19,8 @@ import { QuestionComponent } from './question/question.component';
 import { PointReplacerPipe } from './question/formatter/point-replacer.pipe';
 import { UsersComponent } from './users/users.component';
 import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
-
-const appRoutes: Routes = [
-  { path: '', component: QuestionComponent },
-  { path: 'users', component: UsersComponent }
-];
+import { FinishedGameComponent } from './finished-game/finished-game.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +28,9 @@ const appRoutes: Routes = [
     QuestionComponent,
     PointReplacerPipe,
     UsersComponent,
-    TopicSelectorComponent
+    TopicSelectorComponent,
+    FinishedGameComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +39,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-
+    RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
     MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule

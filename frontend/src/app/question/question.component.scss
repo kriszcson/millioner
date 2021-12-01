@@ -2,9 +2,9 @@ $primary-color:#272727;
 $secondary-color: #deeaee;
 $border-color:#187563;
 $hover-color:#272727;
-$primary-font-size:3rem;
+$primary-font-size:2.4rem;
 $secondary-font-size:4rem;
-$answer-font-size:3rem;
+$answer-font-size:1.5rem;
 $primary-font-family: 'Shadows Into Light',
 serif;
 $secondary-font-family: 'Crimson Text',
@@ -13,113 +13,118 @@ serif;
     $border-color: #e65959;
 }
 
-.toolbar {
-    background-color: $primary-color;
-    height: 10vh;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__title {
-        font-family: $secondary-font-family;
-        margin-top: 8vh;
-        margin-left: 40vw;
-        font-size: $primary-font-size;
-        color: $border-color;
-    }
-    &__logout {
-        button {
-            color: $secondary-color;
-            font-size: 2rem;
-            font-weight: bold;
-            background-color: $border-color;
-            border-radius: 8%;
-            padding: 2px 5px;
-            font-family: $secondary-font-family;
-            margin-left: 80vw;
-        }
-    }
-}
-
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     align-items: center;
-    text-align: left;
     width: 100%;
-    .desc {
-        font-size: $secondary-font-size;
-        font-family: $secondary-font-family;
-        color: $border-color;
-        margin-top: 6rem;
-    }
-    .question {
-        color: $border-color;
-        font-size: $primary-font-size;
-        font-family: $secondary-font-family;
-        font-weight: bold;
-        text-align: left;
-        margin-top: 3rem;
-        margin-bottom: 0;
-        width: 70%;
-        line-height: 3ch;
-        height: 8rem;
-    }
-    .answers {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        width: 70%;
-        margin: 3rem;
-        margin-top: 0;
-        &__option {
-            flex: 0 40%;
-            margin: 2rem;
-            margin-left: 0;
-            margin-bottom: 0;
-            background-color: $primary-color;
-            font-size: $answer-font-size;
-            color: $secondary-color;
-            border-radius: 12%;
-            border: 0.5rem solid $border-color;
-            padding: 1rem;
-            text-align: left;
-            font-family: $secondary-font-family;
-            cursor: pointer;
-            .decorated-letter {
-                color: $border-color;
-                font-family: $primary-font-family;
-                font-size: $secondary-font-size;
-                letter-spacing: 0.3ch;
-            }
-            .option {
-                color: $secondary-color;
-            }
-        }
-    }
+    margin: 0 auto;
+    background: url('../../assets/question-walp.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    min-height: 100%;
+    min-width: 1024px;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
     .helpers {
         display: flex;
         flex-direction: row;
         margin: 0 auto;
-        width: 100%;
-        justify-content: center;
+        width: 30%;
+        height: 5rem;
+        border-radius: 20px;
+        background-color: black;
+        justify-content: space-between;
+        border: 2px solid rgba(161, 130, 130, 0.679);
+        padding: 1rem 3rem 1rem 3rem;
+        margin-top: 10vh;
         &__img {
             display: flex;
-            margin: 2rem 5rem;
+            margin-left: 0;
+            margin-right: 0;
             flex-direction: column;
-            justify-content: center;
+            border-radius: 50%;
             img {
-                height: 8rem;
-                cursor: pointer;
+                height: 5rem;
+                -webkit-filter: invert(1);
+                filter: invert(1);
+            }
+            &:hover {
+                background-color: #e1d537;
+            }
+            &:active {
+                background-color: green;
             }
         }
     }
-    .phone-support {
-        color: $border-color;
-        font-family: $primary-font-family;
-        font-size: $secondary-font-size;
-        letter-spacing: 0.3ch;
+    .question {
+        margin-top: 10vh;
+        width: 80vw;
+        height: 8rem;
+        border-radius: 20px;
+        background-color: black;
+        font-family: $secondary-font-family;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.679);
+        &__text {
+            font-size: $primary-font-size;
+            line-height: 50px;
+            margin-left: 2rem;
+        }
+    }
+    .answers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 60%;
+        margin: 3rem;
+        &__option {
+            flex: 0 42%;
+            margin-top: 1rem;
+            background-color: #050505b1;
+            border: 2px solid rgba(255, 255, 255, 0.679);
+            font-size: $answer-font-size;
+            color: $secondary-color;
+            border-radius: 20px;
+            padding: 1rem;
+            text-align: left;
+            font-family: $secondary-font-family;
+            cursor: pointer;
+            .option {
+                color: $secondary-color;
+            }
+            &:hover {
+                background-color: #050505;
+            }
+        }
+        .decorated-letter {
+            font-weight: 800;
+            color: #7c397a;
+            margin-right: 0.8rem;
+        }
+    }
+    .phone-help {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        background-color: #7c397a;
+        border: 2px solid white;
     }
 }
 

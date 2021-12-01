@@ -20,6 +20,10 @@ export namespace Topic {
     }
 }
 
+export const categories = [
+    Topic.Enum.GEO, Topic.Enum.HISTORY, Topic.Enum.IT, Topic.Enum.LITERATURE, Topic.Enum.MOVIES, Topic.Enum.MUSIC, Topic.Enum.REAL, Topic.Enum.SPORTS
+]
+
 export namespace Award {
     export enum Enum {
         q0 = 0,

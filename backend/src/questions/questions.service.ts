@@ -22,7 +22,7 @@ export class QuestionsService {
         return question;
     }
 
-    async getOneByDifficult(difficult: any) {
+    async getOneByDifficult(difficult: any): Promise<Question> {
         return this.getRandomQuestion(await this.getAllByDifficulty(difficult));
     }
 
@@ -35,8 +35,37 @@ export class QuestionsService {
         } return questionsByDifficulty;
     }
 
+    async getOneByTopic(topic: string): Promise<Question> {
+        return this.getRandomQuestion(await this.getAllByTopic(topic));
+    }
+
+    async deleteById(id: string) {
+        return await this.questionModel.findByIdAndDelete(id);
+    }
+
+    private async getAllByTopic(topic: any): Promise<Question[]> {
+        let questionsByTopic: Question[] = [];
+        for (let question of await this.getAll()) {
+            if (question.category == topic) {
+                questionsByTopic.push(question);
+            }
+        } return questionsByTopic;
+    }
+
+    async getOneOfTopicAndDifficulty(topic: string, difficulty: string): Promise<Question> {
+        return this.getRandomQuestion(await this.getAllOfTopicAndDifficulty(topic, difficulty));
+    }
+
+    private async getAllOfTopicAndDifficulty(topic: string, difficulty: string): Promise<Question[]> {
+        let questionsByTopicAndDifficulty: Question[] = [];
+        for (let question of await this.getAll()) {
+            if (question.category == topic && question.difficulty.toString() == difficulty) {
+                questionsByTopicAndDifficulty.push(question);
+            }
+        } return questionsByTopicAndDifficulty;
+    }
+
     private getRandomQuestion(questions: Question[]): Question {
         return questions[Math.floor(Math.random() * questions.length)]
     }
-
 }
