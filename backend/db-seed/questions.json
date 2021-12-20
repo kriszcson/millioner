@@ -1,0 +1,434 @@
+[
+    {
+        "answer_options": [
+            "10",
+            "6",
+            "8",
+            "9"
+        ],
+        "_id": "6040e9d2162c9f3ad470e7b6",
+        "question": "Hány évadot élt meg a Győzike Show?",
+        "right_answer_index": 0,
+        "category": "MOVIES",
+        "difficulty": 7,
+        "createdAt": "2021-03-04T14:08:18.282Z",
+        "updatedAt": "2021-03-04T14:08:18.282Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Los Angeles",
+            "Sidney",
+            "Athén",
+            "Berlin"
+        ],
+        "_id": "6040ecc78277874f0ca6ce54",
+        "question": "Melyik városban rendezték a 2000-es Olimpiát?",
+        "right_answer_index": 1,
+        "category": "SPORT",
+        "difficulty": 5,
+        "createdAt": "2021-03-04T14:20:55.937Z",
+        "updatedAt": "2021-03-04T14:20:55.937Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "BIMM BIMM BIMM",
+            "BÁMM BÁMM BÁMM",
+            "ZUMM ZUMM ZUMM",
+            "BUMM BUMM BUMM"
+        ],
+        "_id": "6041d95a5e9dbb49f8616139",
+        "question": " Hogyan folytatódik az ismert népdal?\nVirágéknál ég a világ, sütik már a rántott békát zimme zumm zimme zumm rece fice... ",
+        "right_answer_index": 3,
+        "category": "LITERATURE",
+        "difficulty": 1,
+        "createdAt": "2021-03-05T07:10:18.131Z",
+        "updatedAt": "2021-03-05T07:10:18.131Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "m/s2",
+            "m/s",
+            "kg*m/s2",
+            "m/kg"
+        ],
+        "_id": "6041da284a04281b6499a5e6",
+        "question": "Mi a gyorsulás mértékegysége?",
+        "right_answer_index": 0,
+        "category": "REAL",
+        "difficulty": 3,
+        "createdAt": "2021-03-05T07:13:44.060Z",
+        "updatedAt": "2021-03-05T07:13:44.060Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Karinthy Frigyes",
+            "Rejtő Jenő",
+            "Krúdy Gyula",
+            "Szerb Antal"
+        ],
+        "_id": "6041db1d4a04281b6499a5e7",
+        "question": "Ki írta a 'Piszkos Fred, a kapitány' című novellát?",
+        "right_answer_index": 1,
+        "category": "LITERATURE",
+        "difficulty": 3,
+        "createdAt": "2021-03-05T07:17:49.312Z",
+        "updatedAt": "2021-03-05T07:17:49.312Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "1. század",
+            "3. század",
+            "Kr. e. 1. század",
+            "Kr. e. 4. század"
+        ],
+        "_id": "6041dd294a04281b6499a5e8",
+        "question": "Mikor élt a Nagy Sándor néven elhíresült hódító király?",
+        "right_answer_index": 3,
+        "category": "HISTORY",
+        "difficulty": 7,
+        "createdAt": "2021-03-05T07:26:33.957Z",
+        "updatedAt": "2021-03-05T07:26:33.957Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Cristiano Ronaldo",
+            "Lionel Messi",
+            "Pelé",
+            "Diego Maradona"
+        ],
+        "_id": "604275ff2f3eed2458b75e63",
+        "question": "Ki nyerte karrierje során a legtöbb aranylabdát?",
+        "right_answer_index": 2,
+        "category": "SPORT",
+        "difficulty": 5,
+        "createdAt": "2021-03-05T18:18:39.053Z",
+        "updatedAt": "2021-03-05T18:18:39.053Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Tokyoban",
+            "New Yorkban",
+            "Dubajban",
+            "Tajpejben"
+        ],
+        "_id": "604276ae2f3eed2458b75e64",
+        "question": "Melyik városban található a világ jelenlegi legmagasabb lakóépülete?",
+        "right_answer_index": 2,
+        "category": "GEO",
+        "difficulty": 2,
+        "createdAt": "2021-03-05T18:21:34.562Z",
+        "updatedAt": "2021-03-05T18:21:34.562Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Madagaszkár",
+            "Új-Zéland",
+            "Izland",
+            "Grönland"
+        ],
+        "_id": "604276f52f3eed2458b75e65",
+        "question": "Melyik a legnagyobb területű sziget a Földön?",
+        "right_answer_index": 3,
+        "category": "GEO",
+        "difficulty": 2,
+        "createdAt": "2021-03-05T18:22:45.573Z",
+        "updatedAt": "2021-03-05T18:22:45.573Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "RTL KLUB",
+            "TV2",
+            "Comedy Central",
+            "M1"
+        ],
+        "_id": "604277592f3eed2458b75e66",
+        "question": "Melyik volt a legnézettebb csatorna Magyarországon 2020-ban?",
+        "right_answer_index": 1,
+        "category": "MOVIES",
+        "difficulty": 4,
+        "createdAt": "2021-03-05T18:24:25.593Z",
+        "updatedAt": "2021-03-05T18:24:25.593Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Személygépkocsi",
+            "Motorkerékpár",
+            "Jet Ski",
+            "Repülőgép"
+        ],
+        "_id": "604278702f3eed2458b75e67",
+        "question": "Milyen gépjármű motorjának a gyártásába kezdett megalakulásakor a BMW néven ismert cég?",
+        "right_answer_index": 3,
+        "category": "TECHNOLOGY",
+        "difficulty": 6,
+        "createdAt": "2021-03-05T18:29:04.139Z",
+        "updatedAt": "2021-03-05T18:29:04.139Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Húros",
+            "Fúvós",
+            "Billentyűs",
+            "Ütős"
+        ],
+        "_id": "60427f832f3eed2458b75e68",
+        "question": "Milyen típusú hangszer a tambura",
+        "right_answer_index": 0,
+        "category": "MUSIC",
+        "difficulty": 6,
+        "createdAt": "2021-03-05T18:59:15.001Z",
+        "updatedAt": "2021-03-05T18:59:15.001Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "3",
+            "1",
+            "0",
+            "5"
+        ],
+        "_id": "6042806d2f3eed2458b75e69",
+        "question": "Hány olimpiai aranyérmet szerzett pályafutása során Cseh László?",
+        "right_answer_index": 2,
+        "category": "SPORT",
+        "difficulty": 7,
+        "createdAt": "2021-03-05T19:03:09.127Z",
+        "updatedAt": "2021-03-05T19:03:09.127Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "2002",
+            "1998",
+            "1994",
+            "2000"
+        ],
+        "_id": "604280fa2f3eed2458b75e6a",
+        "question": "Melyik évben hald meg Kurt Cobain, az egykori Nirvana frontembere?",
+        "right_answer_index": 2,
+        "category": "MUSIC",
+        "difficulty": 7,
+        "createdAt": "2021-03-05T19:05:30.561Z",
+        "updatedAt": "2021-03-05T19:05:30.561Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Beethoven",
+            "Wolfgang Amadeus Mozart",
+            "Richard Clayderman",
+            "Johann Sebastian Bach"
+        ],
+        "_id": "604281942f3eed2458b75e6b",
+        "question": "Kinek a műve az 'Örömóda' címen elhíresült szimfónia?",
+        "right_answer_index": 0,
+        "category": "MUSIC",
+        "difficulty": 4,
+        "createdAt": "2021-03-05T19:08:04.221Z",
+        "updatedAt": "2021-03-05T19:08:04.221Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Égetett tésztából",
+            "Kelt tésztából",
+            "Leveles tésztából",
+            "Piskótából"
+        ],
+        "_id": "604282762f3eed2458b75e6c",
+        "question": "Milyen tésztából készül a képviselőfánk?",
+        "right_answer_index": 0,
+        "category": "GASTRONOMY",
+        "difficulty": 7,
+        "createdAt": "2021-03-05T19:11:50.243Z",
+        "updatedAt": "2021-03-05T19:11:50.243Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "1 850 000",
+            "1 950 000",
+            "1 750 000",
+            "1 800 000"
+        ],
+        "_id": "6042839b2f3eed2458b75e6d",
+        "question": "Mennyi volt Budapest lakossága kerekítve, a 2019. január 1-i adatok alapján?",
+        "right_answer_index": 2,
+        "category": "GEO",
+        "difficulty": 8,
+        "createdAt": "2021-03-05T19:16:43.217Z",
+        "updatedAt": "2021-03-05T19:16:43.217Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "CO2",
+            "CH4",
+            "COOH",
+            "H2S"
+        ],
+        "_id": "6042840c2f3eed2458b75e6e",
+        "question": "Mi a metán molekulaképlete?",
+        "right_answer_index": 1,
+        "category": "REAL",
+        "difficulty": 2,
+        "createdAt": "2021-03-05T19:18:36.434Z",
+        "updatedAt": "2021-03-05T19:18:36.434Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "62 év",
+            "63 év",
+            "65 év",
+            "82 év"
+        ],
+        "_id": "604286ca2f3eed2458b75e6f",
+        "question": "Mennyi a nyugdíjkorhatár 2021-ben Magyarországon?",
+        "right_answer_index": 2,
+        "category": "SOCIAL",
+        "difficulty": 3,
+        "createdAt": "2021-03-05T19:30:18.302Z",
+        "updatedAt": "2021-03-05T19:30:18.302Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "ionos",
+            "egyszeres kovalens",
+            "kétszeres kovalens",
+            "háromszoros kovalens"
+        ],
+        "_id": "6042874a2f3eed2458b75e70",
+        "question": "Milyen kötések alkotják a szén-monoxid vegyületet?",
+        "right_answer_index": 3,
+        "category": "REAL",
+        "difficulty": 5,
+        "createdAt": "2021-03-05T19:32:26.050Z",
+        "updatedAt": "2021-03-05T19:32:26.050Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Első",
+            "Második",
+            "Harmadik",
+            "Negyedik"
+        ],
+        "_id": "604288a62f3eed2458b75e72",
+        "question": "Hányadik főcsoport eleme a nátrium?",
+        "right_answer_index": 0,
+        "category": "REAL",
+        "difficulty": 2,
+        "createdAt": "2021-03-05T19:38:14.544Z",
+        "updatedAt": "2021-03-05T19:38:14.544Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Bács-Kiskun",
+            "Pest",
+            "Hajdú-Bihar",
+            "Somogy"
+        ],
+        "_id": "619df4eb04815f0ff45781ca",
+        "question": "Melyik Magyarország legnagyobb területű megyéje?",
+        "right_answer_index": 0,
+        "difficulty": 2,
+        "category": "GEO",
+        "createdAt": "2021-11-24T08:16:43.453Z",
+        "updatedAt": "2021-11-24T08:16:43.453Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Morgó",
+            "Dulifuli",
+            "Bunkócska",
+            "Mufurc"
+        ],
+        "_id": "619e081304815f0ff45781d3",
+        "question": "Ki volt a Hófehérke és a hét törpe című mesefilm zsémbes törpéje?",
+        "right_answer_index": 0,
+        "difficulty": 1,
+        "category": "MOVIES",
+        "createdAt": "2021-11-24T09:38:27.721Z",
+        "updatedAt": "2021-11-24T09:38:27.721Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Pirit",
+            "Ezüst",
+            "Markazit",
+            "Plagioklász"
+        ],
+        "_id": "619e089f04815f0ff45781d4",
+        "question": "Melyik ásványt nevezik másképpen a bolondok aranyának?",
+        "right_answer_index": 0,
+        "difficulty": 2,
+        "category": "GEO",
+        "createdAt": "2021-11-24T09:40:48.001Z",
+        "updatedAt": "2021-11-24T09:40:48.001Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "Herminamező",
+            "Rigómező",
+            "Kenyérmező",
+            "Lech-mező"
+        ],
+        "_id": "619e09ee04815f0ff45781d5",
+        "question": "Az alábbi települések közül hol NEM zajlott fegyveres csata?",
+        "right_answer_index": 0,
+        "difficulty": 4,
+        "category": "HISTORY",
+        "createdAt": "2021-11-24T09:46:22.138Z",
+        "updatedAt": "2021-11-24T09:46:22.138Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "17",
+            "7",
+            "12",
+            "23"
+        ],
+        "_id": "619e0b0b04815f0ff45781d6",
+        "question": "Hány magyar származású ember kapott Nobel-díjat?",
+        "right_answer_index": 0,
+        "difficulty": 6,
+        "category": "HISTORY",
+        "createdAt": "2021-11-24T09:51:07.141Z",
+        "updatedAt": "2021-11-24T09:51:07.141Z",
+        "__v": 0
+    },
+    {
+        "answer_options": [
+            "12",
+            "6",
+            "10",
+            "2"
+        ],
+        "_id": "61a797e253cf9498c9609644",
+        "question": "Hány darabot jelent az egykoron használt mértékegység, a tucat?",
+        "right_answer_index": 0,
+        "difficulty": 1,
+        "category": "REAL",
+        "createdAt": "2021-12-01T15:42:26.871Z",
+        "updatedAt": "2021-12-01T15:42:26.871Z",
+        "__v": 0
+    }
+]

@@ -40,14 +40,14 @@ export class QuestionComponent implements OnInit {
     private readonly questionService: QuestionService,
   ) { }
 
-  ngOnInit(): void {/* 
+  ngOnInit(): void {/*
     this.userEmail = localStorage.getItem('email');
     this.token = localStorage.getItem('access_token');
     if (this.token == null || this.userService.tokenExpired(this.token)) {
       this.router.navigateByUrl('/users');
     } else {
       this.playStartingSound(); */
-    this.getQuestion();/* 
+    this.getQuestion();/*
     } */
   }
 
@@ -58,6 +58,7 @@ export class QuestionComponent implements OnInit {
     this.clickedOption = -1;
     this.questionService.getRandomByDifficulty(this.difficulty, this.token)
       .subscribe((data => {
+        console.log(data);
         this.question = data;
         this.rightAnswerTemp = this.question.answer_options[this.question.right_answer_index];
         this.question.answer_options = this.shuffleOptions(this.question.answer_options);
@@ -158,7 +159,7 @@ export class QuestionComponent implements OnInit {
     return Award.Enum.q10;
   }
 
-  savePoints() {/* 
+  savePoints() {/*
     this.userService.updatePoints(this.userEmail, this.checkAmount()).subscribe(data => {
     }); */
   }

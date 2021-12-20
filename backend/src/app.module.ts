@@ -9,7 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), UserModule, AuthModule, MongooseModule.forRoot("mongodb+srv://admin:admin@cluster0.vripv.mongodb.net/Quiz?retryWrites=true&w=majority", { useNewUrlParser: true }), QuestionsModule],
+  imports: [ConfigModule.forRoot(), UserModule, AuthModule, MongooseModule.forRoot(process.env.MONGO_URI, { useNewUrlParser: true }), QuestionsModule],
   controllers: [AppController],
   providers: [AppService],
 })

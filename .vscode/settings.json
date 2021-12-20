@@ -1,0 +1,35 @@
+/* {
+    "editor.tokenColorCustomizations": {
+        "strings": "#b19869",
+        "method": "#ff8400",
+        "textMateRules": [
+            {
+                "scope": "string.json",
+                "settings": {
+                    "foreground": "#6db8c9"
+                }
+            }
+        ]
+
+    }, 
+        "workbench.colorCustomizations": {
+            "editor.background": "#1c1c17",
+            "sideBar.background": "#1c1c17",
+            "sideBar.foreground": "#c9dbdd",
+            "activityBar.background": "#000000",
+            "scrollbarSlider.background": "#4bbdc16d",
+            "activityBar.border": "#2e6e70",
+            "sideBarSectionHeader.background": "#2b4a4b",
+            "editorLineNumber.activeForeground": "#63dbdd",
+            "editorGutter.background": "#000000",
+            "activityBar.foreground": "#c0e0e1",
+            "editorWidget.background": "#112b2c",
+            "titleBar.activeBackground": "#26595a",
+            "titleBar.activeForeground": "#ffffff",
+            "panel.background": "#ffff32",
+                "tab.activeBackground":"#26595a",
+                "tab.inactiveBackground": "#000000", 
+            
+    },
+    "editor.guides.indentation": false,
+} */
