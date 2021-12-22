@@ -1,0 +1,38 @@
+.navbar{
+  width:100vw;
+  height:4rem;
+  background-color: #281346e2;
+  display:flex;
+  justify-content: space-between;
+  padding: 1em 0;
+  z-index: 900;
+  position: absolute;
+  top: 0;
+  .title{
+    font-family: 'Crimson Text';
+    margin:auto 0;
+    padding-left:5rem;
+    color: white;
+    font-weight: bold;
+    font-size:2rem;
+  }
+  .dropdown{
+      padding-right:3rem;
+      margin:auto 0;
+    .mat-select {
+      background-image: url(../../assets/krisz.png);
+      background-size: 50px;
+      border-radius: 100%;
+      height:3rem;
+      width:3rem;
+    }
+  }
+}
+
+mat-option, mat-active{
+  background-color: black !important;
+  border-radius: 2px;
+  border: 2px solid white !important;
+  color:#8c6da7 !important;
+  font-weight:bold;
+}

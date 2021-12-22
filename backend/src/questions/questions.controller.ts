@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { QuestionDTO } from './dto/questions.dto';
 import { Topic } from './model/question.model';
 import { QuestionsService } from './questions.service';
 
+@UseGuards(JwtAuthGuard)
 @Controller('questions')
 export class QuestionsController {
 

@@ -1,0 +1,13 @@
+<div class="navbar">
+  <div class="title">legyen ön is milliomos</div>
+  <div class="dropdown">
+    <mat-form-field>
+      <mat-select>
+        <mat-option (click)="reload()">Új játék</mat-option>
+        <mat-option [routerLink]="['profile']">Profil</mat-option>
+        <mat-option>Kérdés jelentése</mat-option>
+        <mat-option (click)="signOut()">Kijelentkezés</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

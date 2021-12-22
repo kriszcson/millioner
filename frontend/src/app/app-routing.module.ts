@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
@@ -8,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
   { path: '', component: QuestionComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'login', component: UsersComponent },
   { path: 'finished', component: FinishedGameComponent },
   { path: 'admin', component: AdminComponent }

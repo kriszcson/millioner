@@ -21,6 +21,11 @@ export class UsersService {
     return this.http.put<any>((`${environment.API_URL}/users/updatepoints`), { email: email, allAmount: points });
   }
 
+  logOut() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('email');
+  }
+
   tokenExpired(token: string): boolean {
     const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
     return (Math.floor((new Date).getTime() / 1000)) >= expiry;

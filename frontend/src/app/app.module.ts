@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 
+import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -21,6 +22,8 @@ import { UsersComponent } from './users/users.component';
 import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
 import { FinishedGameComponent } from './finished-game/finished-game.component';
 import { AdminComponent } from './admin/admin.component';
+import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { AdminComponent } from './admin/admin.component';
     UsersComponent,
     TopicSelectorComponent,
     FinishedGameComponent,
-    AdminComponent
+    AdminComponent,
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +44,11 @@ import { AdminComponent } from './admin/admin.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }),
     HttpClientModule,
     ReactiveFormsModule,
-    MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule
+    MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule,
+    MatSelectModule
   ],
   providers: [PointReplacerPipe],
   bootstrap: [AppComponent],
