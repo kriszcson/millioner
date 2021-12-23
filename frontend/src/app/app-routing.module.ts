@@ -6,9 +6,13 @@ import { FinishedGameComponent } from './finished-game/finished-game.component';
 
 import { QuestionComponent } from './question/question.component';
 import { UsersComponent } from './users/users.component';
+import { AuthGuard } from './users/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: QuestionComponent },
+  {
+    path: '', component: QuestionComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: UsersComponent },
   { path: 'finished', component: FinishedGameComponent },

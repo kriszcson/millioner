@@ -3,7 +3,7 @@ import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/co
 import { InjectModel } from "@nestjs/mongoose";
 import * as bcrypt from 'bcrypt';
 
-import { Model } from "mongoose";
+import { Model, Schema } from "mongoose";
 import { UserDTO } from "./dto/user.dto";
 import { User } from "./user.model";
 
@@ -38,11 +38,12 @@ export class UserService {
         }
     }
 
-    async updateUser(userDTO: UserDTO) {
-        const userOriginalPoints = (await this.findByEmail(userDTO.email)).allAmount;
-        userDTO.allAmount += userOriginalPoints;
+    async updateUserPoints(id: Schema.Types.ObjectId, points: number) {
+        const user = await this.userModel.findById(id).exec();
+        user.allAmount += +points;
+
         return await this.userModel
-            .findOneAndUpdate({ email: userDTO.email }, userDTO, { useFindAndModify: false, new: true })
+            .findOneAndUpdate({ _id: id }, user, { useFindAndModify: false, new: true })
             .exec()
             || new NotFoundException(404, 'Account not found!');
     }
@@ -60,7 +61,6 @@ export class UserService {
 
     private async hashPassword(password: string) {
         const saltOfRounds = 10;;
-        const hash = await bcrypt.hash(password, saltOfRounds);
-        return hash;
+        return await bcrypt.hash(password, saltOfRounds);
     }
 }

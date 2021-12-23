@@ -33,7 +33,6 @@ export class AdminComponent implements OnInit {
   onSubmit(): void {
     this.questionService.insertOne(this.questionForm.value)
       .subscribe((data) => {
-        console.log(data);
       })
     this.questionForm.reset();
   }

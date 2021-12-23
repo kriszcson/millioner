@@ -58,7 +58,6 @@ export class QuestionComponent implements OnInit {
     this.clickedOption = -1;
     this.questionService.getRandomByDifficulty(this.difficulty, this.token)
       .subscribe((data => {
-        console.log(data);
         this.question = data;
         this.rightAnswerTemp = this.question.answer_options[this.question.right_answer_index];
         this.question.answer_options = this.shuffleOptions(this.question.answer_options);

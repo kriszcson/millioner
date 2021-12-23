@@ -1,10 +1,11 @@
+import { AuthInterceptor } from './users/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -24,6 +25,7 @@ import { FinishedGameComponent } from './finished-game/finished-game.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './users/auth.guard';
 
 @NgModule({
   declarations: [
@@ -45,12 +47,24 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }),
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        }
+      }
+    }),
     HttpClientModule,
     ReactiveFormsModule,
-    MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule,
-    MatSelectModule
+    MatIconModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule, MatSelectModule
   ],
-  providers: [PointReplacerPipe],
+  providers: [PointReplacerPipe, AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },],
   bootstrap: [AppComponent],
   exports: [MatInputModule, MatFormFieldModule]
 })

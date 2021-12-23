@@ -10,5 +10,5 @@ export interface User extends mongoose.Document {
     readonly _id: mongoose.Schema.Types.ObjectId
     readonly email: string;
     readonly password: string;
-    readonly allAmount: number;
+    allAmount: number;
 }

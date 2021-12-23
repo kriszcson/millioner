@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
   isShow = false;
   token: string;
 
-  ngOnInit(): void {/* 
+  ngOnInit(): void {/*
     if (localStorage.getItem('access_token')) {
       this.token = localStorage.getItem('access_token');
       if (!this.usersService.tokenExpired(this.token)) {
@@ -38,8 +38,6 @@ export class UsersComponent implements OnInit {
   login() {
     const { email, password } = this.loginForm.value;
     this.usersService.login(email, password).subscribe(data => {
-      localStorage.setItem('access_token', data.access_token);
-      localStorage.setItem('email', data.email);
       this.message = "Sikeres Bejelentkezés!";
       setTimeout(() => {
         this.router.navigateByUrl('')

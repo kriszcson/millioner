@@ -34,7 +34,12 @@ export class AuthService {
         await this.connectRedis();
 
         const userHave = await this.userService.findByEmail(user.email)
-        const payload = { email: user.email, sub: userHave._id };
+        const payload = {
+            email: user.email,
+            sub: userHave._id,
+            allAmount: userHave.allAmount
+        };
+
         const token = this.jwtService.sign(payload);
         return this.setToken(token, userHave._id.toString())
             .then((status) => {
